@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>{% block title %}Harsh Solanki — DevOps Engineer & Developer{% endblock %}</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f4ff',
+              100: '#e0e9ff',
+              400: '#60a5fa',
+              500: '#3b82f6',  // Electric Blue
+              600: '#2563eb',
+              700: '#1d4ed8',
+            },
+            accent: {
+              400: '#22d3ee',  // Cyan
+              500: '#06b6d4',
+              600: '#0891b2',
+            },
+            darkbg: '#0f172a',  // Dark Navy
+            card: '#1e293b',    // Slate
+          },
+          keyframes: {
+            float: {
+              '0%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+              '100%': { transform: 'translateY(0px)' }
+            },
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(15px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' }
+            },
+            slideInLeft: {
+              '0%': { opacity: '0', transform: 'translateX(-30px)' },
+              '100%': { opacity: '1', transform: 'translateX(0)' }
+            },
+            slideInRight: {
+              '0%': { opacity: '0', transform: 'translateX(30px)' },
+              '100%': { opacity: '1', transform: 'translateX(0)' }
+            },
+            slideInUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' }
+            },
+            scaleIn: {
+              '0%': { opacity: '0', transform: 'scale(0.95)' },
+              '100%': { opacity: '1', transform: 'scale(1)' }
+            },
+            pulse: {
+              '0%, 100%': { opacity: '1' },
+              '50%': { opacity: '0.5' }
+            },
+            glow: {
+              '0%, 100%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.3)' },
+              '50%': { boxShadow: '0 0 30px rgba(59, 130, 246, 0.5)' }
+            }
+          },
+          animation: {
+            float: 'float 4s ease-in-out infinite',
+            fadeIn: 'fadeIn 0.6s ease-out forwards',
+            slideInLeft: 'slideInLeft 0.6s ease-out forwards',
+            slideInRight: 'slideInRight 0.6s ease-out forwards',
+            slideInUp: 'slideInUp 0.6s ease-out forwards',
+            scaleIn: 'scaleIn 0.6s ease-out forwards',
+            pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            glow: 'glow 3s ease-in-out infinite'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Enhanced inline styles using new color palette -->
+  <style>
+    html { scroll-behavior: smooth; }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .card-hover {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-hover:hover {
+      transform: translateY(-8px);
+    }
+
+    .glow-effect {
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .glow-effect:hover {
+      box-shadow: 0 0 40px rgba(59, 130, 246, 0.2);
+    }
+
+    .shine {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shine::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.6s;
+    }
+
+    .shine:hover::after {
+      left: 100%;
+    }
+
+    .stagger-in > *:nth-child(1) { animation-delay: 0.1s; }
+    .stagger-in > *:nth-child(2) { animation-delay: 0.2s; }
+    .stagger-in > *:nth-child(3) { animation-delay: 0.3s; }
+    .stagger-in > *:nth-child(4) { animation-delay: 0.4s; }
+    .stagger-in > *:nth-child(5) { animation-delay: 0.5s; }
+    .stagger-in > *:nth-child(6) { animation-delay: 0.6s; }
+
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="bg-darkbg text-white antialiased">
+
+  <!-- NAVBAR -->
+  <header class="bg-darkbg/80 backdrop-blur-md sticky top-0 z-40 border-b border-brand-500/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-500 to-accent-400 flex items-center justify-center text-darkbg font-bold animate-float shadow-lg">HS</div>
+          <span class="font-bold text-lg bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Harsh Solanki</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8 text-sm">
+          <a href="/" class="text-gray-300 hover:text-brand-500 transition duration-300 font-medium">Home</a>
+          <a href="{% url 'about' %}" class="text-gray-300 hover:text-brand-500 transition duration-300 font-medium">About</a>
+          <a href="#projects" class="text-gray-300 hover:text-brand-500 transition duration-300 font-medium">Projects</a>
+          <a href="#contact" class="text-gray-300 hover:text-brand-500 transition duration-300 font-medium">Contact</a>
+          <a href="/static/HarshSolanki.pdf" download class="ml-2 px-4 py-2 bg-gradient-to-r from-brand-500 to-accent-500 text-white rounded-lg hover:shadow-lg hover:shadow-brand-500/50 transition duration-300 font-semibold shine">Resume</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button id="nav-toggle" class="p-2 rounded-lg hover:bg-white/10 transition">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2 animate-fadeIn">
+      <a href="/" class="block py-2 px-3 rounded-lg text-gray-300 hover:bg-white/5 hover:text-brand-500 transition">Home</a>
+      <a href="{% url 'about' %}" class="block py-2 px-3 rounded-lg text-gray-300 hover:bg-white/5 hover:text-brand-500 transition">About</a>
+      <a href="#projects" class="block py-2 px-3 rounded-lg text-gray-300 hover:bg-white/5 hover:text-brand-500 transition">Projects</a>
+      <a href="#contact" class="block py-2 px-3 rounded-lg text-gray-300 hover:bg-white/5 hover:text-brand-500 transition">Contact</a>
+      <a href="/static/HarshSolanki.pdf" download class="block mt-3 py-2 px-3 bg-gradient-to-r from-brand-500 to-accent-500 text-white rounded-lg text-center font-semibold">Resume</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-brand-500/10 mt-24 bg-darkbg/50 backdrop-blur-sm">
+    <div class="max-w-6xl mx-auto px-4 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="text-sm text-gray-400">© {% now "Y" %} Harsh Solanki. All rights reserved.</div>
+      <div class="flex items-center gap-6">
+        <a href="https://github.com/harsh4082/" target="_blank" rel="noreferrer" class="text-gray-400 hover:text-brand-500 transition duration-300 hover:scale-110">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.486 2 12.02c0 4.428 2.865 8.185 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.455-1.157-1.11-1.466-1.11-1.466-.908-.62.069-.607.069-.607 1.004.071 1.532 1.033 1.532 1.033.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.339-2.22-.253-4.555-1.113-4.555-4.952 0-1.094.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.748-1.026 2.748-1.026.546 1.379.203 2.398.1 2.65.64.7 1.028 1.594 1.028 2.688 0 3.849-2.339 4.696-4.566 4.944.36.31.68.924.68 1.863 0 1.344-.012 2.428-.012 2.759 0 .269.18.58.688.482C19.138 20.202 22 16.448 22 12.02 22 6.486 17.523 2 12 2z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/harshsolanki2804/" target="_blank" rel="noreferrer" class="text-gray-400 hover:text-brand-500 transition duration-300 hover:scale-110">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3A2 2 0 0121 5v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.34 17V10.3H5.67V17h2.67zM7 9.1a1.54 1.54 0 110-3.08 1.54 1.54 0 010 3.08zM18.33 17v-4.6c0-2.45-1.31-3.58-3.06-3.58-1.41 0-2.03.78-2.38 1.33V10.3H10.5s.03 1.1 0 6.7h2.67v-3.74c0-.2.01-.39.07-.53.15-.39.49-.79 1.06-.79.75 0 1.05.59 1.05 1.46V17H18.33z"/></svg>
+        </a>
+        <a href="mailto:harshsolanki2804@gmail.com" class="text-gray-400 hover:text-brand-500 transition duration-300 hover:scale-110">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const menu = document.getElementById('mobile-menu');
+    toggle?.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+
+    menu?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+      });
+    });
+  </script>
+</body>
+</html>

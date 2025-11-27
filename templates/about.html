@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About — Harsh Solanki{% endblock %}
+
+{% block content %}
+<!-- INTRO SECTION -->
+<section class="py-12 animate-fadeIn">
+  <div class="grid md:grid-cols-3 gap-8">
+    <!-- PROFILE CARD -->
+    <div class="md:col-span-1">
+      <div class="sticky top-24 space-y-6">
+        <!-- Profile card -->
+        <div class="bg-gradient-to-br from-card to-darkbg p-8 rounded-2xl border border-brand-500/20 glow-effect">
+          <div class="relative mb-6">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-500/20 to-accent-400/20 rounded-2xl blur-3xl"></div>
+            <img src="{% static 'Images/MyImage.jpeg' %}" alt="Harsh Solanki" class="w-32 h-32 rounded-2xl object-cover border-4 border-brand-500/30 mx-auto relative z-10">
+          </div>
+          <div class="text-center">
+            <h2 class="text-2xl font-bold">Harsh Solanki</h2>
+            <p class="text-brand-500 font-semibold mt-1">Junior DevOps Engineer</p>
+            <p class="text-gray-400 text-sm mt-3 leading-relaxed">Building resilient cloud infrastructure and automating deployment pipelines</p>
+          </div>
+
+          <!-- Contact info -->
+          <div class="mt-6 space-y-3 text-sm text-gray-300 border-t border-brand-500/10 pt-6">
+            <div class="flex items-start gap-3">
+              <span class="text-brand-500 text-lg mt-0.5">📧</span>
+              <div>
+                <p class="text-xs text-gray-500 uppercase tracking-widest mb-1">Email</p>
+                <a href="mailto:harshsolanki2804@gmail.com" class="text-brand-500 hover:text-accent-400 transition">harshsolanki2804@gmail.com</a>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-brand-500 text-lg mt-0.5">📱</span>
+              <div>
+                <p class="text-xs text-gray-500 uppercase tracking-widest mb-1">Phone</p>
+                <p>9372943895</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-brand-500 text-lg mt-0.5">🔗</span>
+              <div>
+                <p class="text-xs text-gray-500 uppercase tracking-widest mb-1">LinkedIn</p>
+                <a href="https://www.linkedin.com/in/harshsolanki2804/" target="_blank" class="text-brand-500 hover:text-accent-400 transition">View Profile</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Download resume button -->
+          <a href="/static/HarshSolanki.pdf" download class="w-full mt-6 block py-3 bg-gradient-to-r from-brand-500 to-accent-500 text-white rounded-lg hover:shadow-lg hover:shadow-brand-500/50 transition duration-300 font-semibold text-center shine">
+            ⬇ Download Resume
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="md:col-span-2 space-y-8">
+      <!-- PROFESSIONAL SUMMARY -->
+      <div class="bg-gradient-to-br from-card to-darkbg p-8 rounded-2xl border border-brand-500/20 glow-effect card-hover animate-slideInRight">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="h-1 w-12 bg-gradient-to-r from-brand-500 to-accent-500 rounded-full"></div>
+          <h3 class="text-2xl font-bold">Professional Summary</h3>
+        </div>
+        <p class="text-gray-300 leading-relaxed text-lg">
+          Results-driven <span class="text-brand-500 font-semibold">Junior DevOps Engineer</span> with expertise in designing and maintaining cloud infrastructure. I specialize in CI/CD pipelines, containerization with Docker & Kubernetes, and Infrastructure as Code using Terraform. Committed to building scalable, secure, and efficient deployment solutions.
+        </p>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="bg-gradient-to-br from-card to-darkbg p-8 rounded-2xl border border-brand-500/20 glow-effect card-hover animate-slideInUp">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="h-1 w-12 bg-gradient-to-r from-brand-500 to-accent-500 rounded-full"></div>
+          <h3 class="text-2xl font-bold">Education</h3>
+        </div>
+        <div class="space-y-4">
+          {% for edu in education %}
+            <div class="pb-4 border-b border-brand-500/10 last:border-b-0">
+              <div class="flex justify-between items-start gap-4">
+                <div>
+                  <h4 class="font-bold text-lg text-brand-500">{{ edu.degree }}</h4>
+                  <p class="text-gray-300 font-medium">{{ edu.institution }}</p>
+                  {% if edu.description %}<p class="text-gray-400 text-sm mt-2">{{ edu.description }}</p>{% endif %}
+                </div>
+                <span class="text-xs text-gray-500 font-semibold whitespace-nowrap">{{ edu.start_year }} — {{ edu.end_year }}</span>
+              </div>
+            </div>
+          {% empty %}
+            <p class="text-gray-400 italic">Education details coming soon...</p>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- TECHNICAL SKILLS -->
+      <div class="bg-gradient-to-br from-card to-darkbg p-8 rounded-2xl border border-brand-500/20 glow-effect card-hover animate-slideInUp">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="h-1 w-12 bg-gradient-to-r from-brand-500 to-accent-500 rounded-full"></div>
+          <h3 class="text-2xl font-bold">Technical Skills</h3>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          {% for skill in skills %}
+            <div class="p-3 bg-white/5 border border-brand-500/20 rounded-lg hover:bg-brand-500/10 transition duration-300 group">
+              <div class="flex items-center justify-between">
+                <span class="font-medium text-white">{{ skill.name }}</span>
+                {% if skill.level %}
+                  <span class="text-xs bg-brand-500/20 text-brand-400 px-2 py-1 rounded font-semibold">{{ skill.level }}</span>
+                {% endif %}
+              </div>
+            </div>
+          {% empty %}
+            <p class="text-gray-400 col-span-2 italic">Skills coming soon...</p>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- KEY PROJECTS -->
+      <div id="projects" class="bg-gradient-to-br from-card to-darkbg p-8 rounded-2xl border border-brand-500/20 glow-effect card-hover animate-slideInUp">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="h-1 w-12 bg-gradient-to-r from-brand-500 to-accent-500 rounded-full"></div>
+          <h3 class="text-2xl font-bold">Key Projects</h3>
+        </div>
+        <div class="space-y-4">
+          {% for project in projects %}
+            <div class="p-4 bg-white/3 rounded-lg border border-brand-500/10 hover:bg-white/5 transition duration-300 group">
+              <div class="flex justify-between items-start gap-4 mb-3">
+                <div>
+                  <h4 class="font-bold text-lg text-brand-500 group-hover:text-accent-400 transition">{{ project.title }}</h4>
+                  <p class="text-gray-400 text-sm mt-1">{{ project.description|truncatechars:140 }}</p>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-3">
+                {% if project.tech_stack %}
+                  <span class="text-xs bg-brand-500/10 text-brand-400 px-2 py-1 rounded border border-brand-500/20">{{ project.tech_stack }}</span>
+                {% endif %}
+              </div>
+              <div class="flex gap-3">
+                {% if project.repo_url %}
+                  <a href="{{ project.repo_url }}" target="_blank" class="text-brand-500 hover:text-accent-400 text-sm font-semibold transition duration-300 flex items-center gap-1">
+                    <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.486 2 12.02c0 4.428 2.865 8.185 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.455-1.157-1.11-1.466-1.11-1.466-.908-.62.069-.607.069-.607 1.004.071 1.532 1.033 1.532 1.033.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.339-2.22-.253-4.555-1.113-4.555-4.952 0-1.094.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.748-1.026 2.748-1.026.546 1.379.203 2.398.1 2.65.64.7 1.028 1.594 1.028 2.688 0 3.849-2.339 4.696-4.566 4.944.36.31.68.924.68 1.863 0 1.344-.012 2.428-.012 2.759 0 .269.18.58.688.482C19.138 20.202 22 16.448 22 12.02 22 6.486 17.523 2 12 2z"/></svg>
+                    Repository
+                  </a>
+                {% endif %}
+                {% if project.live_url %}
+                  <a href="{{ project.live_url }}" target="_blank" class="text-brand-500 hover:text-accent-400 text-sm font-semibold transition duration-300 flex items-center gap-1">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    Live
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          {% empty %}
+            <p class="text-gray-400 italic">Projects coming soon...</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

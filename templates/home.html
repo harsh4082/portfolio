@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home — Harsh Solanki{% endblock %}
+
+{% block content %}
+<!-- HERO SECTION -->
+<section class="grid md:grid-cols-2 gap-12 items-center py-20">
+  <!-- Left content -->
+  <div class="space-y-6 animate-slideInLeft">
+    <div class="space-y-2">
+      <p class="text-brand-500 font-semibold text-sm tracking-widest uppercase">Welcome to my portfolio</p>
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight">
+        Hi, I'm <span class="gradient-text">Harsh Solanki</span>
+      </h1>
+    </div>
+
+    <p class="text-lg text-gray-300 leading-relaxed max-w-lg">
+      Results-driven <span class="text-brand-500 font-semibold">Junior DevOps Engineer</span> specializing in CI/CD pipelines, containerization, and cloud infrastructure. I automate delivery pipelines and build resilient cloud-native systems using Docker, Kubernetes, and AWS.
+    </p>
+
+    <!-- CTA buttons -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-4">
+      <a href="/static/HarshSolanki.pdf" download class="px-6 py-3 rounded-lg bg-gradient-to-r from-brand-500 to-accent-500 text-white hover:shadow-lg hover:shadow-brand-500/50 transition duration-300 font-semibold shine">
+        Download Resume
+      </a>
+      <a href="{% url 'about' %}" class="px-6 py-3 rounded-lg border-2 border-brand-500 text-brand-500 hover:bg-brand-500/10 transition duration-300 font-semibold">
+        About Me
+      </a>
+    </div>
+
+    <!-- Social links -->
+    <div class="flex gap-4 pt-4">
+      <a href="https://github.com/harsh4082" target="_blank" class="px-4 py-2 rounded-lg bg-white/5 hover:bg-brand-500/20 hover:text-brand-500 text-gray-300 transition duration-300 font-medium flex items-center gap-2">
+        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.486 2 12.02c0 4.428 2.865 8.185 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.455-1.157-1.11-1.466-1.11-1.466-.908-.62.069-.607.069-.607 1.004.071 1.532 1.033 1.532 1.033.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.339-2.22-.253-4.555-1.113-4.555-4.952 0-1.094.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.748-1.026 2.748-1.026.546 1.379.203 2.398.1 2.65.64.7 1.028 1.594 1.028 2.688 0 3.849-2.339 4.696-4.566 4.944.36.31.68.924.68 1.863 0 1.344-.012 2.428-.012 2.759 0 .269.18.58.688.482C19.138 20.202 22 16.448 22 12.02 22 6.486 17.523 2 12 2z"/></svg>
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/harshsolanki2804/" target="_blank" class="px-4 py-2 rounded-lg bg-white/5 hover:bg-brand-500/20 hover:text-brand-500 text-gray-300 transition duration-300 font-medium flex items-center gap-2">
+        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3A2 2 0 0121 5v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.34 17V10.3H5.67V17h2.67zM7 9.1a1.54 1.54 0 110-3.08 1.54 1.54 0 010 3.08zM18.33 17v-4.6c0-2.45-1.31-3.58-3.06-3.58-1.41 0-2.03.78-2.38 1.33V10.3H10.5s.03 1.1 0 6.7h2.67v-3.74c0-.2.01-.39.07-.53.15-.39.49-.79 1.06-.79.75 0 1.05.59 1.05 1.46V17H18.33z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+
+  <!-- Right profile card -->
+  <div class="flex justify-center animate-slideInRight">
+    <div class="w-full max-w-sm p-8 bg-gradient-to-br from-card to-darkbg border border-brand-500/20 rounded-2xl shadow-2xl card-hover glow-effect">
+      <div class="relative">
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-500/20 to-accent-400/20 rounded-2xl blur-3xl opacity-0 group-hover:opacity-100 transition duration-300"></div>
+        <img src="{% static 'Images/MyImage.jpeg' %}" alt="Harsh Solanki" class="w-full h-64 rounded-xl object-cover border-4 border-brand-500/30 relative z-10">
+      </div>
+      <div class="mt-6 space-y-3 text-center">
+        <h3 class="font-bold text-2xl">Harsh Solanki</h3>
+        <p class="text-brand-500 font-semibold text-sm">Junior DevOps Engineer</p>
+        <p class="text-gray-400 text-sm leading-relaxed">Building scalable infrastructure and automating deployment pipelines</p>
+      </div>
+      <div class="mt-6 space-y-2 text-sm text-gray-300 border-t border-brand-500/10 pt-6">
+        <div class="flex items-center gap-2">
+          <span class="text-brand-500">✉</span>
+          <span>harshsolanki2804@gmail.com</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-brand-500">📱</span>
+          <span>9372943895</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-brand-500">📍</span>
+          <span>Mumbai, India</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS PREVIEW SECTION -->
+<section id="projects" class="py-20">
+  <div class="mb-12 stagger-in">
+    <p class="text-brand-500 font-semibold text-sm tracking-widest uppercase mb-2">Portfolio</p>
+    <div class="flex items-end justify-between gap-4 flex-col md:flex-row">
+      <div>
+        <h2 class="text-4xl md:text-5xl font-bold mb-2">Featured Projects</h2>
+        <p class="text-gray-400 text-lg">Showcasing my best work in DevOps, cloud infrastructure, and full-stack development</p>
+      </div>
+      <a href="{% url 'about' %}#projects" class="text-brand-500 hover:text-brand-600 font-semibold transition duration-300 flex items-center gap-2 whitespace-nowrap">
+        View All
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Projects grid -->
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-in">
+    {% for project in projects|slice:":6" %}
+    <article class="group bg-gradient-to-br from-card to-darkbg p-6 rounded-xl border border-brand-500/20 card-hover glow-effect overflow-hidden">
+      <!-- Only show image section if project has an image -->
+      {% if project.image %}
+      <div class="relative mb-4 overflow-hidden rounded-lg">
+        <img src="{{ project.image.url }}" alt="{{ project.title }}" class="h-40 w-full object-cover group-hover:scale-110 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+      </div>
+      {% endif %}
+
+      <h3 class="font-bold text-xl text-white group-hover:text-brand-500 transition duration-300">{{ project.title }}</h3>
+      <p class="text-gray-400 text-sm mt-2 line-clamp-2">{{ project.description|truncatechars:100 }}</p>
+
+      <div class="mt-4 flex flex-wrap gap-2">
+        {% if project.tech_stack %}
+          <span class="inline-block px-3 py-1 text-xs bg-brand-500/10 text-brand-400 rounded border border-brand-500/20 font-medium">{{ project.tech_stack }}</span>
+        {% endif %}
+      </div>
+
+      <div class="mt-4 flex gap-3 pt-4 border-t border-brand-500/10">
+        {% if project.repo_url %}
+          <a href="{{ project.repo_url }}" target="_blank" class="flex items-center gap-1 text-brand-500 hover:text-accent-400 text-sm font-semibold transition duration-300">
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.486 2 12.02c0 4.428 2.865 8.185 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.455-1.157-1.11-1.466-1.11-1.466-.908-.62.069-.607.069-.607 1.004.071 1.532 1.033 1.532 1.033.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.339-2.22-.253-4.555-1.113-4.555-4.952 0-1.094.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.748-1.026 2.748-1.026.546 1.379.203 2.398.1 2.65.64.7 1.028 1.594 1.028 2.688 0 3.849-2.339 4.696-4.566 4.944.36.31.68.924.68 1.863 0 1.344-.012 2.428-.012 2.759 0 .269.18.58.688.482C19.138 20.202 22 16.448 22 12.02 22 6.486 17.523 2 12 2z"/></svg>
+            Repository
+          </a>
+        {% endif %}
+        {% if project.live_url %}
+          <a href="{{ project.live_url }}" target="_blank" class="flex items-center gap-1 text-brand-500 hover:text-accent-400 text-sm font-semibold transition duration-300">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            Live Demo
+          </a>
+        {% endif %}
+      </div>
+    </article>
+    {% empty %}
+      <p class="text-gray-400 col-span-full text-center py-8">Projects coming soon...</p>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="py-20">
+  <div class="bg-gradient-to-r from-card via-card to-darkbg p-8 md:p-12 rounded-2xl border border-brand-500/20 glow-effect animate-fadeIn">
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div class="space-y-4">
+        <h3 class="text-3xl md:text-4xl font-bold">Let's Connect & Build</h3>
+        <p class="text-gray-300 text-lg leading-relaxed">
+          I'm always open to collaborations, opportunities, and interesting projects. Whether you need a DevOps expert or have an exciting challenge, let's talk!
+        </p>
+        <div class="flex items-center gap-3 pt-2">
+          <div class="h-1 w-16 bg-gradient-to-r from-brand-500 to-accent-500 rounded-full"></div>
+          <p class="text-gray-400 text-sm">Specializing in CI/CD, Kubernetes, Terraform & Cloud</p>
+        </div>
+      </div>
+      <div class="space-y-3">
+        {% if contact %}
+          <a href="mailto:{{ contact.email }}" class="block p-4 bg-gradient-to-r from-brand-500 to-accent-500 text-white rounded-lg hover:shadow-lg hover:shadow-brand-500/50 transition duration-300 font-semibold text-center shine">
+            📧 Email: {{ contact.email }}
+          </a>
+        {% else %}
+          <a href="mailto:harshsolanki2804@gmail.com" class="block p-4 bg-gradient-to-r from-brand-500 to-accent-500 text-white rounded-lg hover:shadow-lg hover:shadow-brand-500/50 transition duration-300 font-semibold text-center shine">
+            📧 Email Me
+          </a>
+        {% endif %}
+        <a href="https://www.linkedin.com/in/harshsolanki2804/" target="_blank" class="block p-4 bg-white/5 border border-brand-500/30 text-brand-500 rounded-lg hover:bg-brand-500/10 transition duration-300 font-semibold text-center">
+          💼 Connect on LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
