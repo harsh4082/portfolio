@@ -44,3 +44,6 @@ node_modules/
 # dotenv (if exists someday)
 .env
 .env.*
+
+
+portfolio_project/settings.py
